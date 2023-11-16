@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private BoxCollider2D boxCollider;
-    private Vector3 moveDelta;
-    private RaycastHit2D hit;
-
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sr;
@@ -21,7 +17,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sr = GetComponent<SpriteRenderer>();
@@ -81,12 +76,13 @@ public class Player : MonoBehaviour
         _movement = Vector2.zero;
         StopCoroutine(C_FlashRed());
 
-        _sr.color = new Color(1f, 1f, 1f, 0f);
+        //_sr.color = new Color(1f, 1f, 1f, 0f);
+        _sr.enabled = false;
     }
 
     private void OnHurt()
     {
-        //StartCoroutine(C_FlashRed());
+        StartCoroutine(C_FlashRed());
         _playerStats.DeductLife();
     }
 }
