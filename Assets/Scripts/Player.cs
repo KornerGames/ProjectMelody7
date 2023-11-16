@@ -8,37 +8,35 @@ public class Player : MonoBehaviour
     private Vector3 moveDelta;
     private RaycastHit2D hit;
 
+    private Rigidbody2D _rb;
+    private Animator _animator;
+
     public float speed = 1f; // adjust the speed as needed
+
+    private Vector2 movement;
 
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        // Input
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        // Animation
+        _animator.SetFloat("Horizontal", movement.x);
+        _animator.SetFloat("Vertical", movement.y);
+        _animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-
-        // Normalize the moveDelta vector and multiply it by the speed variable
-        moveDelta = new Vector3(x, y, 0).normalized * speed;
-
-        if (moveDelta.x > 0)
-            transform.localScale = Vector3.one;
-        else if (moveDelta.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        // Apply movement using the moveDelta vector
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
-        if (hit.collider == null)
-        {
-            transform.Translate(0, moveDelta.y * Time.deltaTime, 0);
-        }
-
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(moveDelta.x * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
-        if (hit.collider == null)
-        {
-            transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
-        }
+        // Movement
+        _rb.MovePosition(_rb.position + speed * Time.fixedDeltaTime * movement);
     }
 }
