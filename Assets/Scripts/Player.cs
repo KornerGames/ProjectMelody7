@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer _sr;
 
     private Vector2 _movement;
-    private bool _isDisabled = false;
+    [SerializeField] private bool _isDisabled = false;
 
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
@@ -60,6 +60,14 @@ public class Player : MonoBehaviour
         _rb.MovePosition(_rb.position + speed * Time.fixedDeltaTime * _movement);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            OnHurt();
+        }
+    }
+
     private IEnumerator C_FlashRed()
     {
         _sr.color = Color.red;
@@ -70,12 +78,15 @@ public class Player : MonoBehaviour
     private void OnDie()
     {
         _isDisabled = true;
-        _sr.color = new Color(1, 1, 1, 0);
+        _movement = Vector2.zero;
+        StopCoroutine(C_FlashRed());
+
+        _sr.color = new Color(1f, 1f, 1f, 0f);
     }
 
     private void OnHurt()
     {
+        //StartCoroutine(C_FlashRed());
         _playerStats.DeductLife();
-        StartCoroutine(C_FlashRed());
     }
 }

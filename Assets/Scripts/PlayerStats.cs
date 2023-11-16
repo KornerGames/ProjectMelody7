@@ -9,12 +9,11 @@ public class PlayerStats : MonoBehaviour
     private int lives = 3;
 
     public static event Action NoLives;
-    public static event Action DeductedLives;
 
     public void DeductLife()
     {
         lives--;
-        DeductedLives?.Invoke();
+        GameManager.Instance.UpdateLives(lives);
 
         if (lives == 0)
         {
