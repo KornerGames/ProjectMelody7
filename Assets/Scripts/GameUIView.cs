@@ -11,4 +11,9 @@ public class GameUIView : MonoBehaviour
     {
         _livesSlider.value = value;
     }
+
+    public void SetLivesMax(int max)
+    {
+        _livesSlider.maxValue = max;
+    }
 }

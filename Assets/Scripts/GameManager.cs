@@ -10,4 +10,9 @@ public class GameManager : ASingleton<GameManager>
     {
         _view.UpdateLives(value);
     }
+
+    public void SetMaxLives(int max)
+    {
+        _view.SetLivesMax(max);
+    }
 }

@@ -10,6 +10,11 @@ public class PlayerStats : MonoBehaviour
 
     public static event Action NoLives;
 
+    private void Start()
+    {
+        GameManager.Instance.SetMaxLives(lives);
+    }
+
     public void DeductLife()
     {
         lives--;
