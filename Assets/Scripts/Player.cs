@@ -9,7 +9,11 @@ public class Player : MonoBehaviour
     private SpriteRenderer _sr;
 
     private Vector2 _movement;
+    private Vector2 _cachedDirection;
     [SerializeField] private bool _isDisabled = false;
+
+    [SerializeField] private AnimationCurve _flashRedAnimCurve;
+    [SerializeField] private AnimationCurve _fadeOutAnimCurve;
 
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
@@ -41,11 +45,16 @@ public class Player : MonoBehaviour
             // Input
             _movement.x = Input.GetAxisRaw("Horizontal");
             _movement.y = Input.GetAxisRaw("Vertical");
+
+            if (_movement != Vector2.zero)
+            {
+                _cachedDirection = _movement;
+            }
         }
 
         // Animation
-        _animator.SetFloat("Horizontal", _movement.x);
-        _animator.SetFloat("Vertical", _movement.y);
+        _animator.SetFloat("Horizontal", _cachedDirection.x);
+        _animator.SetFloat("Vertical", _cachedDirection.y);
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
     }
 
