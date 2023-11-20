@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private Vector2 _movement;
     private Vector2 _cachedDirection;
-    [SerializeField] private bool _isDisabled = false;
+    [SerializeField] private bool _isMovementOff = false;
 
     [SerializeField] private AnimationCurve _flashRedAnimCurve;
     [SerializeField] private AnimationCurve _fadeOutAnimCurve;
@@ -40,9 +40,17 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!_isDisabled)
+        if (Input.GetButtonDown("Fire1"))
         {
-            // Input
+            _animator.SetTrigger("Slash");
+            // TODODEN check for slashed enemy based on direction
+            _isMovementOff = true;
+            _movement = Vector2.zero;
+
+        }
+
+        if (!_isMovementOff)
+        {
             _movement.x = Input.GetAxisRaw("Horizontal");
             _movement.y = Input.GetAxisRaw("Vertical");
 
@@ -52,10 +60,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Animation
+        // Animation - Idle Anim relies on cached direction
         _animator.SetFloat("Horizontal", _cachedDirection.x);
         _animator.SetFloat("Vertical", _cachedDirection.y);
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
+
     }
 
     private void FixedUpdate()
@@ -79,9 +88,14 @@ public class Player : MonoBehaviour
         _sr.color = Color.white;
     }
 
+    public void EnableMovement()
+    {
+        _isMovementOff = false;
+    }
+
     private void OnDie()
     {
-        _isDisabled = true;
+        _isMovementOff = true;
         _movement = Vector2.zero;
         StopCoroutine(C_FlashRed());
 
