@@ -15,6 +15,14 @@ public class Player : MonoBehaviour
     [SerializeField] private AnimationCurve _flashRedAnimCurve;
     [SerializeField] private AnimationCurve _fadeOutAnimCurve;
 
+    [Header("Slash Areas")]
+    [SerializeField] private float _slashDamage;
+    [SerializeField] private SlashArea _slashUp;
+    [SerializeField] private SlashArea _slashDown;
+    [SerializeField] private SlashArea _slashLeft;
+    [SerializeField] private SlashArea _slashRight;
+
+
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
     private PlayerStats _playerStats;
@@ -26,6 +34,11 @@ public class Player : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
 
         _playerStats = GetComponent<PlayerStats>();
+
+        _slashUp.SetDamage(_slashDamage);
+        _slashDown.SetDamage(_slashDamage);
+        _slashLeft.SetDamage(_slashDamage);
+        _slashRight.SetDamage(_slashDamage);
     }
 
     private void OnEnable()
@@ -43,7 +56,8 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             _animator.SetTrigger("Slash");
-            // TODODEN check for slashed enemy based on direction
+            SlashEnemies(_cachedDirection);
+
             _isMovementOff = true;
             _movement = Vector2.zero;
 
@@ -65,6 +79,26 @@ public class Player : MonoBehaviour
         _animator.SetFloat("Vertical", _cachedDirection.y);
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
 
+    }
+
+    private void SlashEnemies(Vector2 direction)
+    {
+        if (direction.x == Vector2.left.x)
+        {
+            _slashLeft.SlashEnemies();
+        }
+        else if (direction.x == Vector2.right.x)
+        {
+            _slashRight.SlashEnemies();
+        }
+        else if (direction == Vector2.up)
+        {
+            _slashUp.SlashEnemies();
+        }
+        else if (direction == Vector2.down)
+        {
+            _slashDown.SlashEnemies();
+        }
     }
 
     private void FixedUpdate()
