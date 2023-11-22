@@ -6,21 +6,24 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
-    private int lives = 3;
+    private int _lives = 3;
+    [SerializeField]
+    private float _slashDamage = 10f;
+    public float SlashDamage => _slashDamage;
 
     public static event Action NoLives;
 
     private void Start()
     {
-        GameManager.Instance.SetMaxLives(lives);
+        GameManager.Instance.SetMaxLives(_lives);
     }
 
     public void DeductLife()
     {
-        lives--;
-        GameManager.Instance.UpdateLives(lives);
+        _lives--;
+        GameManager.Instance.UpdateLives(_lives);
 
-        if (lives == 0)
+        if (_lives == 0)
         {
             NoLives?.Invoke();
         }

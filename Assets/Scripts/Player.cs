@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] private AnimationCurve _fadeOutAnimCurve;
 
     [Header("Slash Areas")]
-    [SerializeField] private float _slashDamage;
     [SerializeField] private SlashArea _slashUp;
     [SerializeField] private SlashArea _slashDown;
     [SerializeField] private SlashArea _slashLeft;
@@ -35,10 +34,10 @@ public class Player : MonoBehaviour
 
         _playerStats = GetComponent<PlayerStats>();
 
-        _slashUp.SetDamage(_slashDamage);
-        _slashDown.SetDamage(_slashDamage);
-        _slashLeft.SetDamage(_slashDamage);
-        _slashRight.SetDamage(_slashDamage);
+        _slashUp.SetDamage(_playerStats.SlashDamage);
+        _slashDown.SetDamage(_playerStats.SlashDamage);
+        _slashLeft.SetDamage(_playerStats.SlashDamage);
+        _slashRight.SetDamage(_playerStats.SlashDamage);
     }
 
     private void OnEnable()
@@ -122,7 +121,7 @@ public class Player : MonoBehaviour
         _sr.color = Color.white;
     }
 
-    public void EnableMovement()
+    public void OnEndSlashAnimation()
     {
         _isMovementOff = false;
     }
