@@ -5,14 +5,28 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _hp = 30f;
+    [SerializeField] private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void TakeDamage(float damage)
     {
         _hp -= damage;
-        Debug.Log($"Enemy took damage. HP is now {_hp}");
-        if (_hp <= 0)
+        if (_hp > 0)
         {
-            Debug.Log("Enemy died");
+            _animator.SetTrigger("Hurt");
         }
+        else
+        {
+            _animator.SetTrigger("Die");
+        }
+    }
+
+    public void OnEndDieAnimation()
+    {
+        Destroy(gameObject);
     }
 }
