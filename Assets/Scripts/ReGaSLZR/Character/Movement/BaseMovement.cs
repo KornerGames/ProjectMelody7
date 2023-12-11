@@ -46,10 +46,13 @@ namespace Character.Movement {
         [Space]
 
         [SerializeField]
+        [AnimatorParam("m_compAnimator")]
         protected string m_animMove;
         [SerializeField]
+        [AnimatorParam("m_compAnimator")]
         private string m_animStunned;
         [SerializeField]
+        [AnimatorParam("m_compAnimator")]
         private string m_animDead;
 
         protected StatMovement m_statMovement = new StatMovement(0f);

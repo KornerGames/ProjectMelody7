@@ -18,8 +18,10 @@ namespace Character.Skill {
         protected Animator m_compAnimator;
 
         [SerializeField]
+        [AnimatorParam("m_compAnimator")]
         protected string m_animSkill;
         [SerializeField]
+        [AnimatorParam("m_compAnimator")]
         [Tooltip("Necessary for skills with 'scratch' animations. Leave BLANK if unused.")]
         protected string m_animTriggerStopper;
         
