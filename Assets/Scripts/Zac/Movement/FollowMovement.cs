@@ -6,10 +6,12 @@ using UnityEngine;
 namespace Zac
 {
 
-    public class FollowCharacterMovement : BaseCharacterMovement
+    public class FollowMovement : BaseCharacterMovement
     {
 
         #region Inspector Fields
+
+        [Space]
 
         [SerializeField]
         [Required]

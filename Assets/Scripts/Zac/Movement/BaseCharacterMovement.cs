@@ -21,8 +21,6 @@ namespace Zac
         [Required]
         protected Animator animator;
 
-        [Space]
-
         [SerializeField]
         [AnimatorParam("animator")]
         protected string animBoolIdle;

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Zac
 {
 
-    public class PatrolCharacterMovement : BaseCharacterMovement
+    public class PatrolMovement : BaseCharacterMovement
     {
 
         #region Inspector Fields

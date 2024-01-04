@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 
 namespace Zac
 {
 
-    public class BaseCharacterAction : MonoBehaviour
+    public class StaticMovement : BaseCharacterMovement
     {
+
         #region Inspector Fields
 
 
@@ -13,21 +15,24 @@ namespace Zac
 
         #region Other Fields
 
-
-
         #endregion //Other Fields
 
         #region Unity Callbacks
 
-
+        private void Awake()
+        {
+            isMoving = false;
+            moveDuration = 0;
+        }
 
         #endregion //Unity Callbacks
 
         #region Public API
 
-        public void DoAct()
-        { 
-        
+        public override void DoMove()
+        {
+            rigidBody.velocity = Vector2.zero;
+            base.DoMove();
         }
 
         #endregion //Public API
@@ -37,6 +42,7 @@ namespace Zac
 
 
         #endregion //Client Impl
+
     }
 
 }
