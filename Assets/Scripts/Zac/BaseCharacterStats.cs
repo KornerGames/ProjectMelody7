@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace Zac
@@ -11,6 +12,9 @@ namespace Zac
 
         [SerializeField]
         private CharacterStatsModelSO statSO;
+
+        [SerializeField]
+        private TextMeshPro textStatChange;
 
         #endregion //Inspector Fields
 
@@ -70,6 +74,8 @@ namespace Zac
             Debug.Log($"{gameObject.name}.{GetType().Name}: HP went from {tempHP} " +
                 $"to {stats.hitPoints}", gameObject);
 
+            ShowTextStatChange((tempHP > stats.hitPoints), value);
+
             if (stats.hitPoints <= 0)
             {
                 onDeath?.Invoke();
@@ -80,7 +86,17 @@ namespace Zac
 
         #region Client Impl
 
+        private void ShowTextStatChange(bool isNegative, int value)
+        {
+            if (textStatChange == null)
+            {
+                return;
+            }
 
+            textStatChange.color = isNegative ? Color.red : Color.green;
+            textStatChange.text = (isNegative ? "-" : "+") + value;
+            textStatChange.gameObject.SetActive(true);
+        }
 
         #endregion //Client Impl
     }
