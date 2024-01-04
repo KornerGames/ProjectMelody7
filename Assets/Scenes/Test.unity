@@ -3193,6 +3193,8 @@ GameObject:
   - component: {fileID: 1647241091}
   - component: {fileID: 1647241092}
   - component: {fileID: 1647241094}
+  - component: {fileID: 1647241096}
+  - component: {fileID: 1647241095}
   m_Layer: 9
   m_Name: Player Orange
   m_TagString: Player
@@ -3460,6 +3462,41 @@ MonoBehaviour:
     hitPoints: 0
     moveDuration: 0
     targetHPValueRange: {x: 0, y: 0}
+--- !u!114 &1647241095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647241086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb213a72d1211e4f90fdc37feebb785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 1647241096}
+  mainAction: {fileID: 0}
+  targetHPAction: {fileID: 0}
+  stats: {fileID: 1647241094}
+  targetDetector: {fileID: 0}
+  canMoveAndAttackSimultaneously: 0
+--- !u!114 &1647241096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647241086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b98599b5e1a99143a2a642415628cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 1647241091}
+  moveDuration: 1
+  animator: {fileID: 1647241092}
+  animBoolIdle: 
+  animBoolMove: 
 --- !u!1 &1694423010
 GameObject:
   m_ObjectHideFlags: 0

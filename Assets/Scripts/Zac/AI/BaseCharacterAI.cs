@@ -49,18 +49,18 @@ namespace Zac
 
         #region Unity Callbacks
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             stats.RegisterOnDeath(OnDeath);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             movement.SetMoveDuration(stats.Stats.moveDuration);
             targetHPAction.SetValueRange(stats.Stats.targetHPValueRange);
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             disposable = new CompositeDisposable();
 
@@ -87,7 +87,7 @@ namespace Zac
             }
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             disposable.Clear();
             disposable.Dispose();
