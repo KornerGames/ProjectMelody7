@@ -37,16 +37,16 @@ namespace Zac
         #region Public API
 
         [Button]
-        public override void DoMove()
+        public override void StartMove()
         {
-            base.DoMove();
+            base.StartMove();
 
             StartCoroutine(C_CyclePatrolPoints());
         }
 
-        public override void DoStop()
+        public override void StopMove()
         {
-            base.DoStop();
+            base.StopMove();
 
             StopAllCoroutines();
         }
@@ -73,7 +73,7 @@ namespace Zac
 
             if (!HasPatrolPoints())
             {
-                DoStop();
+                StopMove();
                 yield break;
             }
 

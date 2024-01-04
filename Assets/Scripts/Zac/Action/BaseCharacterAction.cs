@@ -72,7 +72,7 @@ namespace Zac
             onFinishListener += listener;
 
         [Button]
-        public void DoAction()
+        public void StartAction()
         {
             if (!CanDoAction())
             {

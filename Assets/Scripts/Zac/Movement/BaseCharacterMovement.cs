@@ -50,14 +50,14 @@ namespace Zac
 
         public virtual void SetMoveDuration(float speed) => moveDuration = speed;
 
-        public virtual void DoMove()
+        public virtual void StartMove()
         {
             animator.SetBool(animBoolIdle, false);
             animator.SetBool(animBoolMove, true);
             isMoving = true;
         }
 
-        public virtual void DoStop()
+        public virtual void StopMove()
         {
             rigidBody.velocity = Vector2.zero;
             animator.SetBool(animBoolIdle, true);

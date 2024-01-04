@@ -44,15 +44,16 @@ namespace Zac
 
         private void OnEnable()
         {
+            disposable = new CompositeDisposable();
+
             if (!shouldAutoFire)
             {
                 return;
             }
 
-            disposable = new CompositeDisposable();
             targetDetector.IsTargetDetected()
                 .Where(isDetected => isDetected)
-                .Subscribe(_ => DoAction())
+                .Subscribe(_ => StartAction())
                 .AddTo(disposable);
         }
 
@@ -67,7 +68,7 @@ namespace Zac
 
         #region Public API
 
-
+        public void SetValueRange(Vector2 valueRange) => this.valueRange = valueRange;
 
         #endregion //Public API
 

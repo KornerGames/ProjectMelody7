@@ -21,6 +21,9 @@ namespace Zac
         [Range(0f, 100f)]
         private float stoppingDistance = 5f;
 
+        [SerializeField]
+        private bool shouldAutoFire;
+
         #endregion //Inspector Fields
 
         #region Other Fields
@@ -35,15 +38,20 @@ namespace Zac
         {
             disposable = new CompositeDisposable();
 
+            if (!shouldAutoFire)
+            {
+                return;
+            }
+
             targetDetector.IsTargetDetected()
                 .Subscribe(isDetected => {
                     if (isDetected)
                     {
-                        DoMove();
+                        StartMove();
                     }
                     else
                     {
-                        DoStop();
+                        StopMove();
                     }
                 })
                 .AddTo(disposable);
@@ -60,21 +68,21 @@ namespace Zac
 
         #region Public API
 
-        public override void DoMove()
+        public override void StartMove()
         {
             if (!targetDetector.IsTargetDetected().Value)
             {
-                DoStop();
+                StopMove();
                 return;
             }
 
-            base.DoMove();
+            base.StartMove();
             StartCoroutine(C_FollowTarget());
         }
 
-        public override void DoStop()
+        public override void StopMove()
         {
-            base.DoStop();
+            base.StopMove();
             StopAllCoroutines();
         }
 

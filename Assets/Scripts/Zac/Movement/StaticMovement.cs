@@ -29,10 +29,10 @@ namespace Zac
 
         #region Public API
 
-        public override void DoMove()
+        public override void StartMove()
         {
-            rigidBody.velocity = Vector2.zero;
-            base.DoMove();
+            //rigidBody.velocity = Vector2.zero;
+            base.StartMove();
         }
 
         #endregion //Public API

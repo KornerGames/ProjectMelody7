@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using UniRx;
 using UnityEngine;
 
 namespace Zac
@@ -9,23 +10,92 @@ namespace Zac
 
         #region Inspector Fields
 
+        [Header("Base Config")]
+
         [SerializeField]
         [Required]
         protected BaseCharacterMovement movement;
 
         [SerializeField]
         [Required]
-        protected BaseCharacterAction action;
+        protected BaseCharacterAction mainAction;
+
+        [SerializeField]
+        [Required]
+        protected TargetHPAction targetHPAction;
 
         [SerializeField]
         [Required]
         protected BaseCharacterStats stats;
 
+        [Space]
+
+        [SerializeField]
+        [Required]
+        protected TargetDetector targetDetector;
+
+        [Space]
+
+        [SerializeField]
+        protected bool canMoveAndAttackSimultaneously;
+
         #endregion //Inspector Fields
+
+        #region Other Fields
+
+        protected CompositeDisposable disposable = new CompositeDisposable();
+
+        #endregion //Other Fields
 
         #region Unity Callbacks
 
+        protected void Awake()
+        {
+            stats.RegisterOnDeath(OnDeath);
+        }
 
+        private void Start()
+        {
+            movement.SetMoveDuration(stats.Stats.moveDuration);
+            targetHPAction.SetValueRange(stats.Stats.targetHPValueRange);
+        }
+
+        private void OnEnable()
+        {
+            disposable = new CompositeDisposable();
+
+            if (canMoveAndAttackSimultaneously)
+            {
+                movement.StartMove();
+            }
+            else
+            {
+                targetDetector.IsTargetDetected()
+                    .Subscribe(isDetected => {
+                        if (isDetected)
+                        {
+                            movement.StopMove();
+                            mainAction.StartAction();
+                        }
+                        else
+                        {
+                            movement.StartMove();
+                            mainAction.StopAction();
+                        }
+                    })
+                    .AddTo(disposable);
+            }
+        }
+
+        private void OnDisable()
+        {
+            disposable.Clear();
+            disposable.Dispose();
+            disposable = null;
+
+            movement.StopMove();
+            mainAction.StopAction();
+        }
 
         #endregion //Unity Callbacks
 
@@ -37,7 +107,13 @@ namespace Zac
 
         #region Client Impl
 
+        private void OnDeath()
+        {
+            Debug.Log($"{gameObject.name}.{GetType().Name}: Just died!", gameObject);
+            //TODO
 
+            gameObject.SetActive(false);
+        }
 
         #endregion //Client Impl
 
