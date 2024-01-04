@@ -47,6 +47,11 @@ namespace GamePlay.Dialogue {
 
         private void Start()
         {
+            if (m_buttonNext == null)
+            {
+                return;
+            }
+
             m_buttonNext.OnClickAsObservable()
                 .Where(_ => (m_currentLineIndex < (m_dialogueLines.Length)))
                 .Subscribe(_ => {

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d939e4f291741244adf66510ead8fed, type: 3}
+  m_Name: New PlaySettings
+  m_EditorClassIdentifier: 
+  isInputPlatformSpecific: 0
+  m_gamePlayInput: 0
+  m_colorScheme:
+    m_healthGain: {r: 0.00965035, g: 1, b: 0, a: 1}
+    m_healthLoss: {r: 1, g: 0, b: 0, a: 1}
+    m_damageNull: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+    m_staminaGain: {r: 0, g: 0.122285366, b: 1, a: 1}
+    m_staminaLoss: {r: 1, g: 0, b: 0.8612037, a: 1}
+    m_moneyGain: {r: 0.998996, g: 1, b: 0, a: 1}
+    m_moneyLoss: {r: 1, g: 0.6860861, b: 0.23113209, a: 1}
+    m_time: {r: 1, g: 1, b: 1, a: 1}
+    m_missionMainPanel: {r: 0.22988607, g: 0.7735849, b: 0.75837654, a: 1}
+    m_missionSidePanel: {r: 0, g: 0.41420877, b: 0.4528302, a: 1}
+  m_audioTheme:
+    m_sfxButtonClick: {fileID: 0}
+    m_sfxMissionUpdate: {fileID: 0}
+    m_bgmMissionAccomplished: {fileID: 0}
+    m_bgmMissionFailure: {fileID: 0}

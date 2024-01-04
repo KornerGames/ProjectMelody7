@@ -11,28 +11,28 @@ namespace Scriptables {
         [System.Serializable]
         public class ColorScheme {
 
-            public Color m_healthGain;
-            public Color m_healthLoss;
-            public Color m_damageNull;
+            public Color m_healthGain = Color.white;
+            public Color m_healthLoss = Color.white;
+            public Color m_damageNull = Color.white;
 
             [Space]
 
-            public Color m_staminaGain;
-            public Color m_staminaLoss;
+            public Color m_staminaGain = Color.white;
+            public Color m_staminaLoss = Color.white;
 
             [Space]
 
-            public Color m_moneyGain;
-            public Color m_moneyLoss;
+            public Color m_moneyGain = Color.white;
+            public Color m_moneyLoss = Color.white;
 
             [Space]
 
-            public Color m_time;
+            public Color m_time = Color.white;
 
             [Space]
 
-            public Color m_missionMainPanel;
-            public Color m_missionSidePanel;
+            public Color m_missionMainPanel = Color.white;
+            public Color m_missionSidePanel = Color.white;
 
         } //end of ColorScheme class
 
