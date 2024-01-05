@@ -2,6 +2,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Zac
 {
@@ -15,6 +16,11 @@ namespace Zac
 
         [SerializeField]
         private TextMeshPro textStatChange;
+
+        [Space]
+
+        [SerializeField]
+        private UnityEvent eventOnDeath;
 
         #endregion //Inspector Fields
 
@@ -79,6 +85,7 @@ namespace Zac
             if (stats.hitPoints <= 0)
             {
                 onDeath?.Invoke();
+                eventOnDeath?.Invoke();
             }
         }
 
