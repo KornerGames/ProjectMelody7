@@ -130,6 +130,11 @@ namespace Zac
             eventOnFinish?.Invoke();
             isDoingAction = false;
 
+            if (actionFX != null)
+            {
+                actionFX.SetActive(false);
+            }
+
             if (isContinuous)
             {
                 StartCoroutine(C_Act());
