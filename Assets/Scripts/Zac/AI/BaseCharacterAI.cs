@@ -21,7 +21,7 @@ namespace Zac
         protected BaseCharacterAction mainAction;
 
         [SerializeField]
-        [Required]
+        //[Required]
         protected TargetHPAction targetHPAction;
 
         [SerializeField]
@@ -57,7 +57,11 @@ namespace Zac
         protected virtual void Start()
         {
             movement.SetMoveDuration(stats.Stats.moveDuration);
-            targetHPAction.SetValueRange(stats.Stats.targetHPValueRange);
+
+            if (targetHPAction != null) 
+            {
+                targetHPAction.SetValueRange(stats.Stats.targetHPValueRange);
+            }
         }
 
         protected virtual void OnEnable()

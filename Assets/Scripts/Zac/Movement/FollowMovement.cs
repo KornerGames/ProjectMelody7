@@ -64,6 +64,21 @@ namespace Zac
             disposable = null;
         }
 
+        private void FixedUpdate()
+        {
+            if (!isMoving)
+            {
+                return;
+            }
+
+            Vector2 target = targetDetector.GetFirstTarget().transform.position;
+            if (Vector2.Distance(rigidBody.position, target) > stoppingDistance)
+            {
+                var direction = (target - rigidBody.position).normalized;
+                rigidBody.MovePosition(rigidBody.position + direction * Time.fixedDeltaTime * moveDuration);
+            }
+        }
+
         #endregion //Unity Callbacks
 
         #region Public API
@@ -77,7 +92,6 @@ namespace Zac
             }
 
             base.StartMove();
-            StartCoroutine(C_FollowTarget());
         }
 
         public override void StopMove()
@@ -90,22 +104,7 @@ namespace Zac
 
         #region Client Impl
 
-        private IEnumerator C_FollowTarget()
-        {
-            isMoving = true;
 
-            while (isMoving)
-            {
-                Vector2 target = targetDetector.GetFirstTarget().transform.position;
-                if (Vector2.Distance(rigidBody.position, target) > stoppingDistance)
-                {
-                    var direction = (target - rigidBody.position).normalized;
-                    rigidBody.MovePosition(rigidBody.position + direction * Time.deltaTime * moveDuration);
-                }
-
-                yield return null;
-            }
-        }
 
         #endregion //Client Impl
 

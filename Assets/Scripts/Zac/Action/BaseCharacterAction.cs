@@ -87,7 +87,7 @@ namespace Zac
             StartCoroutine(C_Act());
         }
 
-        public void StopAction()
+        public virtual void StopAction()
         {
             StopAllCoroutines();
         }

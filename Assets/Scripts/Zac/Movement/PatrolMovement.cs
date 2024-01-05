@@ -16,11 +16,22 @@ namespace Zac
         [SerializeField]
         private Transform[] patrolPoints;
 
+        [SerializeField]
+        [Range(0f, 100f)]
+        private float stoppingDistance = 5f;
+
+        [SerializeField]
+        private bool deactivatePatrolPoints;
+
         #endregion //Inspector Fields
 
         #region Other Fields
 
         private int latestPatrolIndex;
+
+        private Vector2 origin;
+        private Vector2 destination;
+        private Vector2 direction;
 
         #endregion //Other Fields
 
@@ -32,6 +43,45 @@ namespace Zac
             DeactivatePatrolPoints();
         }
 
+        private void SetUpPatrolPoint()
+        {
+            origin = rigidBody.position;
+            destination = patrolPoints[latestPatrolIndex].position;
+
+            if (origin.Equals(destination))
+            {
+                SetNextPatrolPointIndex();
+                destination = patrolPoints[latestPatrolIndex].position;
+            }
+
+            direction = (destination - origin).normalized;
+        }
+
+        private void FixedUpdate()
+        {
+            if (!isMoving)
+            {
+                return;
+            }
+
+            if (!HasPatrolPoints())
+            {
+                StopMove();
+                return;
+            }
+
+            if (Vector2.Distance(rigidBody.position, destination) > stoppingDistance)
+            {
+                rigidBody.MovePosition(rigidBody.position + direction
+                    * Time.fixedDeltaTime * moveDuration);
+            }
+            else
+            {
+                SetNextPatrolPointIndex();
+                SetUpPatrolPoint();
+            }
+        }
+
         #endregion //Unity Callbacks
 
         #region Public API
@@ -39,9 +89,8 @@ namespace Zac
         [Button]
         public override void StartMove()
         {
+            SetUpPatrolPoint();
             base.StartMove();
-
-            StartCoroutine(C_CyclePatrolPoints());
         }
 
         public override void StopMove()
@@ -67,46 +116,6 @@ namespace Zac
             return true;
         }
 
-        private IEnumerator C_CyclePatrolPoints()
-        {
-            isMoving = true;
-
-            if (!HasPatrolPoints())
-            {
-                StopMove();
-                yield break;
-            }
-
-            while (true)
-            {
-                Vector2 origin = rigidBody.position;
-                Vector2 destination = patrolPoints[latestPatrolIndex].position;
-
-                if (origin.Equals(destination))
-                {
-                    SetNextPatrolPointIndex();
-                    destination = patrolPoints[latestPatrolIndex].position;
-                }
-
-                var time = 0f;
-                var direction = (destination - origin).normalized;
-
-                while (Vector2.Distance(rigidBody.position, destination) > 0.25f)
-                {
-                    //rigidBody.position = Vector2.Lerp(origin, destination, 
-                    //    time / moveDuration);
-
-                    rigidBody.MovePosition(rigidBody.position + direction 
-                        * Time.deltaTime * moveDuration);
-
-                    time += Time.deltaTime;
-                    yield return null;
-                }
-
-                SetNextPatrolPointIndex();
-            }
-        }
-
         private void SetNextPatrolPointIndex()
         {
             latestPatrolIndex++;
@@ -119,6 +128,11 @@ namespace Zac
 
         private void DeactivatePatrolPoints()
         {
+            if (!deactivatePatrolPoints)
+            {
+                return;
+            }
+
             foreach (var point in patrolPoints)
             {
                 if (point == null)
