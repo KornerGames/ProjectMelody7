@@ -5,7 +5,8 @@ using Zenject;
 
 namespace Zac
 {
-    public class DialogueModelInstaller : MonoInstaller, IDialogue.IGetter, IDialogue.ISetter
+    public class DialogueModelInstaller : MonoInstaller, 
+        IDialogue.IGetter, IDialogue.ISetter
     {
 
         #region Inspector Fields

@@ -34,6 +34,9 @@ namespace Zac
         [Space]
 
         [SerializeField]
+        protected UnityEvent eventOnFire;
+
+        [SerializeField]
         protected UnityEvent eventOnFinish;
 
         [Header("Config")]
@@ -60,7 +63,13 @@ namespace Zac
 
         #region Unity Callbacks
 
-
+        private void Awake()
+        {
+            if (actionFX != null)
+            {
+                actionFX.SetActive(false);
+            }
+        }
 
         #endregion //Unity Callbacks
 
@@ -107,6 +116,7 @@ namespace Zac
             yield return new WaitForSeconds(delay);
 
             DoActionLogic();
+            eventOnFire?.Invoke();
             audioSource.PlayOneShot(audioClip);
 
             if (actionFX != null)
