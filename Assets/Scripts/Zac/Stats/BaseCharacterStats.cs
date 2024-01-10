@@ -112,7 +112,7 @@ namespace Zac
 
             textStatChange.gameObject.SetActive(false);
 
-            textStatChange.color = isNegative ? Color.red : Color.blue;
+            textStatChange.color = isNegative ? Color.red : Color.green;
             textStatChange.text = (isNegative ? "-" : "+") + value;
             textStatChange.gameObject.SetActive(true);
         }
