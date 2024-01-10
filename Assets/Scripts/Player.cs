@@ -120,6 +120,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void FlashRed()
+    {
+        StartCoroutine(C_FlashRed());
+    }
+
     private IEnumerator C_FlashRed()
     {
         _sr.color = Color.red;

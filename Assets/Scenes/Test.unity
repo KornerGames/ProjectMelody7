@@ -104164,10 +104164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02139a54c2ac845a384d991f7b46ca39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lives: 3
+  _lives: 100
   _slashDamage: 10
-  _audioSource: {fileID: 1647241097}
-  _clipHurt: {fileID: 8300000, guid: bfb20153f9ed43348b6f00c15e070fbd, type: 3}
 --- !u!114 &1647241094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104183,7 +104181,7 @@ MonoBehaviour:
   statSO: {fileID: 11400000, guid: 7c2072d8f319da74688543d8d0a0b948, type: 2}
   textStatChange: {fileID: 1473310397}
   audioSource: {fileID: 1647241097}
-  clipHurt: {fileID: 8300000, guid: 1ce7cd2af40207c4eb6b2ec4ca549415, type: 3}
+  clipHurt: {fileID: 8300000, guid: 97cbc06cbb919a346bcfcf33fe3712f5, type: 3}
   eventOnHealthUpdate:
     m_PersistentCalls:
       m_Calls: []

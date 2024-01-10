@@ -88,6 +88,12 @@ namespace Zac
                         stats.hitPoints = Mathf.Clamp(stats.hitPoints - value,
                             ValueConstants.HP_MIN, ValueConstants.HP_MAX);
                         audioSource.PlayOneShot(clipHurt);
+
+                        //TODO REMOVE THIS LATER!! -ren
+                        if (gameObject.TryGetComponent<Player>(out var player))
+                        {
+                            player.FlashRed();
+                        }
                         break;
                     }
             }
