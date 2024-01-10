@@ -20,6 +20,9 @@ namespace Zac
         [Space]
 
         [SerializeField]
+        private UnityEvent eventOnHealthUpdate;
+
+        [SerializeField]
         private UnityEvent eventOnDeath;
 
         #endregion //Inspector Fields
@@ -31,6 +34,7 @@ namespace Zac
         private CharacterStatsModel stats = new CharacterStatsModel();
 
         private Action onDeath;
+        private Action onHealthUpdate;
 
         #endregion //Other Fields
 
@@ -55,6 +59,7 @@ namespace Zac
         public CharacterStatsModel Stats => stats;
 
         public void RegisterOnDeath(Action listener) => onDeath += listener;
+        public void RegisterOnHealthUpdate(Action listener) => onHealthUpdate += listener;
 
         public void InflictHP(InflictHPType inflictType, int value)
         {
@@ -87,6 +92,11 @@ namespace Zac
                 onDeath?.Invoke();
                 eventOnDeath?.Invoke();
             }
+            else
+            {
+                onHealthUpdate?.Invoke();
+                eventOnHealthUpdate?.Invoke();
+            }
         }
 
         #endregion //Public API
@@ -99,6 +109,8 @@ namespace Zac
             {
                 return;
             }
+
+            textStatChange.gameObject.SetActive(false);
 
             textStatChange.color = isNegative ? Color.red : Color.blue;
             textStatChange.text = (isNegative ? "-" : "+") + value;

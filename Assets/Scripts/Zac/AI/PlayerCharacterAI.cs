@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Zac
 {
@@ -10,7 +11,20 @@ namespace Zac
 
         #region Inspector Fields
 
+        [SerializeField]
+        private Slider sliderHealth;
 
+        [SerializeField]
+        private Image sliderFill;
+
+        [SerializeField]
+        private Color colorGood;
+
+        [SerializeField]
+        private Color colorAverage;
+
+        [SerializeField]
+        private Color colorDanger;
 
         #endregion //Inspector Fields
 
@@ -23,6 +37,7 @@ namespace Zac
         protected override void Awake()
         {
             base.Awake();
+            stats.RegisterOnHealthUpdate(OnHealthUpdate);
         }
 
         protected override void Start()
@@ -50,7 +65,15 @@ namespace Zac
 
         #region Client Impl
 
+        private void OnHealthUpdate()
+        {
+            var hp = stats.Stats.hitPoints;
+            sliderHealth.value = hp;
 
+            sliderFill.color = (hp <= (sliderHealth.maxValue / 3)) ? colorDanger
+                : (hp <= ((sliderHealth.maxValue / 3) * 2)) ? colorAverage
+                : colorGood;
+        }
 
         #endregion //Client Impl
 
