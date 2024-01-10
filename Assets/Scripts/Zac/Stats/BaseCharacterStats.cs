@@ -17,6 +17,15 @@ namespace Zac
         [SerializeField]
         private TextMeshPro textStatChange;
 
+        [Header("Audio")]
+
+        [SerializeField]
+        [Required]
+        protected AudioSource audioSource;
+
+        [SerializeField]
+        protected AudioClip clipHurt;
+
         [Space]
 
         [SerializeField]
@@ -78,6 +87,7 @@ namespace Zac
                     {
                         stats.hitPoints = Mathf.Clamp(stats.hitPoints - value,
                             ValueConstants.HP_MIN, ValueConstants.HP_MAX);
+                        audioSource.PlayOneShot(clipHurt);
                         break;
                     }
             }

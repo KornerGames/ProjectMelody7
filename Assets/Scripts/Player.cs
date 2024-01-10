@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sr;
+    private AudioSource _audioSource;
 
     private Vector2 _movement;
     private Vector2 _cachedDirection;
@@ -21,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] private SlashArea _slashLeft;
     [SerializeField] private SlashArea _slashRight;
 
+    [Space]
+
+    [SerializeField] private AudioClip _clipSlash;
 
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sr = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
 
         _playerStats = GetComponent<PlayerStats>();
 
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             _animator.SetTrigger("Slash");
+            _audioSource.PlayOneShot(_clipSlash);
             SlashEnemies(_cachedDirection);
 
             _isMovementOff = true;
