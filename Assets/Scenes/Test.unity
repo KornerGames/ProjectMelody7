@@ -35316,7 +35316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statSO: {fileID: 11400000, guid: e2c4f40dd74ade44682fdbe71012ac02, type: 2}
   textStatChange: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 464331932}
   clipHurt: {fileID: 0}
   eventOnHealthUpdate:
     m_PersistentCalls:
@@ -35617,10 +35617,10 @@ MonoBehaviour:
     lines:
     - 'COMING SOON:
 
-      [1] Character animations for 4way directions
-
-      [2]
-      Player hurt animation + Player able to hurt enemies'
+      (I have progress on the following, but I need to run more
+      tests and fix some bugs   -Ren)'
+    - '[1] Character animations for 4way directions'
+    - '[2] projectiles for ranged attacks (for Player and non-Player Characters)'
 --- !u!1 &576069551
 GameObject:
   m_ObjectHideFlags: 0
@@ -35795,6 +35795,18 @@ MonoBehaviour:
       - m_Target: {fileID: 576147940}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 34314679}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -62866,6 +62878,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1849825082}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   eventOnFinish:
     m_PersistentCalls:
       m_Calls:
@@ -72731,6 +72755,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1154247778}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1385077657}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -102541,9 +102577,10 @@ MonoBehaviour:
       - Fixed bug on Lava and pink slime (previously
       still continuing to explode/attack even if Player ain''t within range anymore)'
     - '- Player can now kill the pink slime (the one that chases you)'
-    - '- projectiles for ranged attacks (for Player and non-Player Characters)'
+    - '- Player hurt animation (will be updated further)'
     - '- Heads-up display UI for Player health (will be updated further)'
-    - '- Audio (Sound FX and Background Music)'
+    - '- Audio (Sound FX from freesound.org & Background Music is from Moonlighter
+      OST) (to be updated further later)'
     - '- Dialogue text animation'
 --- !u!114 &1425282795
 MonoBehaviour:
@@ -102559,7 +102596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statSO: {fileID: 11400000, guid: e2c4f40dd74ade44682fdbe71012ac02, type: 2}
   textStatChange: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1425282796}
   clipHurt: {fileID: 0}
   eventOnHealthUpdate:
     m_PersistentCalls:

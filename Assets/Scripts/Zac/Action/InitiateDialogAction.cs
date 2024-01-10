@@ -83,6 +83,11 @@ namespace Zac
 
         #region Client Impl
 
+        /// <summary>
+        /// Used in tandem with 'isContinuous' == true
+        /// </summary>
+        protected override bool CanContinueAsLongAs() => false;
+
         protected override bool CanDoAction() => 
             targetDetector.IsTargetDetected().Value;
 

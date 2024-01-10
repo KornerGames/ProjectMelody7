@@ -52,17 +52,8 @@ namespace Zac
             }
 
             targetDetector.IsTargetDetected()
-                .Subscribe(isDetected =>
-                {
-                    if (isDetected)
-                    {
-                        StartAction();
-                    }
-                    else
-                    {
-                        StopAction();
-                    }
-                })
+                .Where(isDetected => isDetected)
+                .Subscribe(_ => StartAction())
                 .AddTo(disposable);
         }
 
@@ -83,9 +74,11 @@ namespace Zac
 
         #region Client Impl
 
-        protected override bool CanDoAction() => 
+        protected override bool CanContinueAsLongAs() => 
             targetDetector.IsTargetDetected().Value;
 
+        protected override bool CanDoAction() => 
+            targetDetector.IsTargetDetected().Value;
 
         protected override void DoActionLogic()
         {

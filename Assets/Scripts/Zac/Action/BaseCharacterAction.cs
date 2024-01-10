@@ -136,12 +136,17 @@ namespace Zac
                 actionFX.SetActive(false);
             }
 
-            if (isContinuous)
+            if (isContinuous && CanContinueAsLongAs())
             {
                 StartCoroutine(C_Act());
                 yield break;
             }
         }
+
+        /// <summary>
+        /// Used in tandem with 'isContinuous' == true
+        /// </summary>
+        protected abstract bool CanContinueAsLongAs();
 
         protected abstract bool CanDoAction();
         protected abstract void DoActionLogic();
