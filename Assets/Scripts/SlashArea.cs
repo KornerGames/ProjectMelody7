@@ -20,6 +20,10 @@ public class SlashArea : MonoBehaviour
             {
                 e.TakeDamage(_damage);
             }
+            if (enemy.TryGetComponent(out Zac.BaseCharacterStats stats))
+            {
+                stats.InflictHP(Zac.InflictHPType.Damage, (int)_damage);
+            }
         }
     }
 
