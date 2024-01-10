@@ -28,7 +28,8 @@ namespace Zac
             
             while (index < (textChars.Length - 1))
             {
-                yield return new WaitForSeconds(letterRevealDelay * Time.deltaTime);
+                yield return new WaitForSeconds(letterRevealDelay);
+                //yield return null;
                 index++;
                 textToAnimate.text = textToAnimate.text + textChars[index].ToString();
             }

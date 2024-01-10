@@ -35075,16 +35075,17 @@ MonoBehaviour:
   shouldAutoFire: 1
   lineModel:
     lines:
+    - '[BUILD UPDATES]'
+    - '- projectiles for ranged attacks (for Player and non-Player Characters)'
+    - Heads-up display UI for Player health (maybe also currency, etc.)
+    - Audio (Sound FX and Background Music)
+    - Dialogue text animation
     - 'UPCOMING UPDATES:
 
-      [1] Character animations for 4way directions (like,
-      face the direction they''re heading to, and face you (the player) when they
-      talk to you)'
-    - '[2] projectiles for ranged attacks (for Player and non-Player Characters)'
-    - '[3] Heads-up display UI for Player health (maybe also currency, etc.)'
-    - '[4] Audio (Sound FX and Background Music)'
-    - '[5] Dialogue text animation'
-    - '[6] Player hurt animation + Player able to hurt enemies'
+      [1] Character animations for 4way directions
+
+      [2]
+      Player hurt animation + Player able to hurt enemies'
 --- !u!1 &576069551
 GameObject:
   m_ObjectHideFlags: 0
