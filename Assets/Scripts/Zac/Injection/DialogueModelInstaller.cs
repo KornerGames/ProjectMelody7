@@ -18,8 +18,11 @@ namespace Zac
 
         [Space]
 
+        //[SerializeField]
+        //private TextMeshProUGUI textDialogue;
+
         [SerializeField]
-        private TextMeshProUGUI textDialogue;
+        private LetterByLetterTextAnimator textDialogue;
 
         [SerializeField]
         private Button buttonNext;
@@ -83,7 +86,8 @@ namespace Zac
                 return;
             }
 
-            textDialogue.text = activeLine.lines[activeLineIndex];
+            //textDialogue.text = activeLine.lines[activeLineIndex];
+            textDialogue.AnimateText(activeLine.lines[activeLineIndex]);
         }
 
         #endregion //Client Impl

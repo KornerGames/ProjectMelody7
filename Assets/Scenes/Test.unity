@@ -35650,7 +35650,7 @@ GameObject:
   - component: {fileID: 610428570}
   - component: {fileID: 610428571}
   m_Layer: 0
-  m_Name: Dialogue
+  m_Name: '[DIALOGUE]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35670,7 +35670,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1499427515}
-  m_Father: {fileID: 1566855944}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &610428571
 MonoBehaviour:
@@ -35685,7 +35685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootUI: {fileID: 1499427514}
-  textDialogue: {fileID: 1434012027}
+  textDialogue: {fileID: 1434012029}
   buttonNext: {fileID: 176093129}
 --- !u!1 &627927100
 GameObject:
@@ -101062,6 +101062,7 @@ GameObject:
   - component: {fileID: 1434012026}
   - component: {fileID: 1434012028}
   - component: {fileID: 1434012027}
+  - component: {fileID: 1434012029}
   m_Layer: 0
   m_Name: Text Line
   m_TagString: Untagged
@@ -101143,8 +101144,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -101186,6 +101187,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434012025}
   m_CullTransparentMesh: 1
+--- !u!114 &1434012029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434012025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a5fed64fbdf5b4cb0819b298ad5276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToAnimate: {fileID: 1434012027}
+  letterRevealDelay: 5
 --- !u!1 &1473310395
 GameObject:
   m_ObjectHideFlags: 0
@@ -101419,7 +101434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1499427515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -101910,8 +101925,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 610428570}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583718055
@@ -118022,3 +118036,4 @@ SceneRoots:
   - {fileID: 277304074}
   - {fileID: 238378242}
   - {fileID: 464331937}
+  - {fileID: 610428570}
