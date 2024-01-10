@@ -529,7 +529,7 @@ MonoBehaviour:
   animator: {fileID: 28751312}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: f9c462e603190ab4eb1f7cdc5511b17f, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -1464,7 +1464,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 176093130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 610428572}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &176093130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6549,7 +6561,7 @@ MonoBehaviour:
   animator: {fileID: 238378238}
   animTriggerAction: 
   actionFX: {fileID: 782349477}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 73160447bd943d64f994890d2d21edad, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -6834,13 +6846,13 @@ Transform:
   m_GameObject: {fileID: 238378234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.56, y: 11.07, z: 0}
+  m_LocalPosition: {x: 23.619999, y: 2.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 758214987}
   - {fileID: 782349478}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250673132
 GameObject:
@@ -11817,7 +11829,7 @@ MonoBehaviour:
   animator: {fileID: 277304070}
   animTriggerAction: 
   actionFX: {fileID: 1342713618}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 2c34badc1aa648c4caf52bf504208db7, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -12102,13 +12114,13 @@ Transform:
   m_GameObject: {fileID: 277304066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.52, y: -6.73, z: 0}
+  m_LocalPosition: {x: -3.460001, y: -15.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 576069554}
   - {fileID: 1342713619}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &286145854
 PrefabInstance:
@@ -12561,7 +12573,7 @@ MonoBehaviour:
   animator: {fileID: 295145136}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 48fdd4f619596ea48b450418c04c87aa, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -35012,12 +35024,12 @@ Transform:
   m_GameObject: {fileID: 464331929}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.99, y: 2.97, z: 0}
+  m_LocalPosition: {x: 18.05, y: -5.7199993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1721124355}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &464331938
 MonoBehaviour:
@@ -35035,7 +35047,7 @@ MonoBehaviour:
   animator: {fileID: 464331933}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 264502fbafd626d41b844d8a50fdccb9, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -35049,7 +35061,10 @@ MonoBehaviour:
   shouldAutoFire: 1
   lineModel:
     lines:
-    - '[BUILD UPDATES]'
+    - '[BUILD UPDATES]
+
+      - Fixed bug on Lava (previously still continuing to
+      explode even if Player ain''t there anymore)'
     - '- projectiles for ranged attacks (for Player and non-Player Characters)'
     - Heads-up display UI for Player health (maybe also currency, etc.)
     - Audio (Sound FX and Background Music)
@@ -35227,7 +35242,7 @@ MonoBehaviour:
   animator: {fileID: 576147937}
   animTriggerAction: 
   actionFX: {fileID: 1647502750}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: a4ccbb26a9bea8b4e8ee11c5b4a2aa08, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls:
@@ -35624,6 +35639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 610428570}
   - component: {fileID: 610428571}
+  - component: {fileID: 610428572}
   m_Layer: 0
   m_Name: '[DIALOGUE]'
   m_TagString: Untagged
@@ -35662,6 +35678,102 @@ MonoBehaviour:
   rootUI: {fileID: 1499427514}
   textDialogue: {fileID: 1434012029}
   buttonNext: {fileID: 176093129}
+--- !u!82 &610428572
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610428569}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 723600f9a0382214ea0b448a575cc8d6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &627927100
 GameObject:
   m_ObjectHideFlags: 0
@@ -40633,7 +40745,7 @@ MonoBehaviour:
   animator: {fileID: 685225163}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 48fdd4f619596ea48b450418c04c87aa, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -61410,8 +61522,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981550389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.059999, y: -8.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61419,7 +61531,8 @@ Transform:
   - {fileID: 1557489943}
   - {fileID: 685225167}
   - {fileID: 2119576967}
-  m_Father: {fileID: 0}
+  - {fileID: 1281123959}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983360304
 GameObject:
@@ -61739,7 +61852,7 @@ MonoBehaviour:
   animator: {fileID: 983360308}
   animTriggerAction: 
   actionFX: {fileID: 991500361}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: c492fb22472aee84dba9d0fc00a6a4a9, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls:
@@ -71506,7 +71619,7 @@ MonoBehaviour:
   animator: {fileID: 1154247775}
   animTriggerAction: 
   actionFX: {fileID: 1999751040}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: e522a9e47b803bc4eb984b3aecd2e8a4, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls:
@@ -71900,6 +72013,43 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1181438547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181438548}
+  m_Layer: 0
+  m_Name: NPCs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1181438548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181438547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.059999, y: 8.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2016512945}
+  - {fileID: 1546400944}
+  - {fileID: 981550390}
+  - {fileID: 277304074}
+  - {fileID: 238378242}
+  - {fileID: 464331937}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225863560
 GameObject:
   m_ObjectHideFlags: 0
@@ -72148,14 +72298,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281123958}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.55, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295145134}
   - {fileID: 1416501905}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 981550390}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1292077602
 GameObject:
@@ -72195,7 +72345,7 @@ MonoBehaviour:
   animator: {fileID: 1292077605}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 48fdd4f619596ea48b450418c04c87aa, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -101529,7 +101679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546400944}
   m_Layer: 0
-  m_Name: Static Slime
+  m_Name: Static Slimes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101543,15 +101693,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546400943}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.44, y: 16.31, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.38, y: 7.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 983360305}
   - {fileID: 1154247771}
   - {fileID: 576147933}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1557489936
 GameObject:
@@ -101591,7 +101741,7 @@ MonoBehaviour:
   animator: {fileID: 1557489939}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 48fdd4f619596ea48b450418c04c87aa, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -117343,13 +117493,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016512944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.37, y: -1.94, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.43, y: -10.629999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 28751311}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1181438548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034191749
 GameObject:
@@ -117698,7 +117848,7 @@ MonoBehaviour:
   animator: {fileID: 2119576963}
   animTriggerAction: 
   actionFX: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 48fdd4f619596ea48b450418c04c87aa, type: 3}
   eventOnFire:
     m_PersistentCalls:
       m_Calls: []
@@ -118069,16 +118219,10 @@ SceneRoots:
   - {fileID: 1330410516}
   - {fileID: 942780805}
   - {fileID: 627927101}
-  - {fileID: 1281123959}
-  - {fileID: 2016512945}
-  - {fileID: 1546400944}
   - {fileID: 1647241088}
   - {fileID: 2034191751}
   - {fileID: 1692568783}
   - {fileID: 1566855944}
   - {fileID: 356315811}
-  - {fileID: 981550390}
-  - {fileID: 277304074}
-  - {fileID: 238378242}
-  - {fileID: 464331937}
   - {fileID: 1744870683}
+  - {fileID: 1181438548}

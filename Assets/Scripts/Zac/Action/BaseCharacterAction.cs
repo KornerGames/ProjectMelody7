@@ -129,6 +129,7 @@ namespace Zac
             onFinishListener?.Invoke();
             eventOnFinish?.Invoke();
             isDoingAction = false;
+            //audioSource.Stop();
 
             if (actionFX != null)
             {

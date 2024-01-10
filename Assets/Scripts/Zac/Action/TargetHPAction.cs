@@ -52,8 +52,17 @@ namespace Zac
             }
 
             targetDetector.IsTargetDetected()
-                .Where(isDetected => isDetected)
-                .Subscribe(_ => StartAction())
+                .Subscribe(isDetected =>
+                {
+                    if (isDetected)
+                    {
+                        StartAction();
+                    }
+                    else
+                    {
+                        StopAction();
+                    }
+                })
                 .AddTo(disposable);
         }
 
