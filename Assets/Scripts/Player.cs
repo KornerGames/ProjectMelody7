@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zac;
+using Zenject;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
     [Space]
 
     [SerializeField] private AudioClip _clipSlash;
+
+    [Inject] private IDialogue.IGetter dialogueGetter;
 
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !dialogueGetter.IsActive())
         {
             _animator.SetTrigger("Slash");
             _audioSource.PlayOneShot(_clipSlash);

@@ -66,6 +66,8 @@ namespace Zac
 
         public void Hide() => rootUI.SetActive(false);
 
+        public bool IsActive() => rootUI.activeInHierarchy;
+
         #endregion //Public API
 
         #region Client Impl
