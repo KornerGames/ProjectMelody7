@@ -12,7 +12,6 @@ namespace Zac
         [Space]
 
         [SerializeField]
-        [Required]
         private TargetDetector targetDetector;
 
         [Space]
@@ -24,7 +23,15 @@ namespace Zac
         private Rigidbody2D prefabProjectile;
 
         [SerializeField]
+        private bool isDirectionDynamic;
+
+        [SerializeField]
+        [DisableIf("isDirectionDynamic")]
         private Vector2 fireDirection;
+
+        [SerializeField]
+        [EnableIf("isDirectionDynamic")]
+        private Player playerTemp;
 
         [SerializeField]
         private float fireForce;
@@ -49,7 +56,7 @@ namespace Zac
         {
             disposable = new CompositeDisposable();
 
-            if (!shouldAutoFire)
+            if (!shouldAutoFire || (targetDetector == null))
             {
                 return;
             }
@@ -83,23 +90,50 @@ namespace Zac
         }
 
         protected override bool CanContinueAsLongAs() =>
+            (targetDetector == null) ? true : 
             targetDetector.IsTargetDetected().Value;
 
         protected override bool CanDoAction() =>
+            (targetDetector == null) ? true :
             targetDetector.IsTargetDetected().Value;
 
         protected override void DoActionLogic()
         {
-            if (targetDetector.GetFirstTarget() == null ||
-                prefabProjectile.gameObject.activeInHierarchy)
+            if (!isDirectionDynamic && (targetDetector != null) && 
+                (targetDetector.GetFirstTarget() == null ||
+                prefabProjectile.gameObject.activeInHierarchy))
             {
                 return;
             }
 
-            prefabProjectile.transform.localPosition = originalProjectilePosition;
+            if (isDirectionDynamic)
+            {
+                FireToPresentDirection();
+            }
+            else
+            {
+                prefabProjectile.transform.localPosition = originalProjectilePosition;
+                prefabProjectile.gameObject.SetActive(true);
+
+                prefabProjectile.AddForce(fireDirection * fireForce, ForceMode2D.Impulse);
+            }
+        }
+
+        private void FireToPresentDirection()
+        {
+            prefabProjectile.gameObject.SetActive(false);
+            prefabProjectile.transform.position = transform.position;
+
+            var dir = playerTemp.CachedDirection;
+
+            prefabProjectile.constraints = (dir.x != 0) ?
+                RigidbodyConstraints2D.FreezePositionY : RigidbodyConstraints2D.FreezePositionX;
+
             prefabProjectile.gameObject.SetActive(true);
 
-            prefabProjectile.AddForce(fireDirection * fireForce, ForceMode2D.Impulse);
+            Debug.Log($"Direction: {dir} | Projectile Cosntraints: {prefabProjectile.constraints}");
+
+            prefabProjectile.AddForce(dir * fireForce, ForceMode2D.Impulse);
         }
 
         #endregion //Client Impl

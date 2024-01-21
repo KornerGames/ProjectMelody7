@@ -45,6 +45,15 @@ namespace Zac
             //base.Start();
         }
 
+        private void Update()
+        {
+            //TODO replace this
+            if (Input.GetButtonDown("Fire2"))
+            {
+                mainAction.StartAction();
+            }
+        }
+
         protected override void OnEnable()
         {
             //base.OnEnable();

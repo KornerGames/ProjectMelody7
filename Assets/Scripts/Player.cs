@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
 
     public float speed = 1f; // adjust the speed as needed
     public float hurtDuration = 0.1f;
+
+    public Vector2 CachedDirection => _cachedDirection;
+
     private PlayerStats _playerStats;
 
     private void Awake()
