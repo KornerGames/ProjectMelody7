@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Samp Char Slow
   m_EditorClassIdentifier: 
   model:
-    hitPoints: 20
-    moveDuration: 2.5
+    hitPoints: 30
+    moveDuration: 3
     targetHPValueRange: {x: 1, y: 15}

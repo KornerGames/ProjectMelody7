@@ -96,9 +96,12 @@ namespace Zac
             StartCoroutine(C_Act());
         }
 
+        protected virtual void OnEndAction() { }
+
         public virtual void StopAction()
         {
             StopAllCoroutines();
+            OnEndAction();
         }
 
         #endregion //Public API
@@ -135,6 +138,8 @@ namespace Zac
             {
                 actionFX.SetActive(false);
             }
+
+            OnEndAction();
 
             if (isContinuous && CanContinueAsLongAs())
             {
