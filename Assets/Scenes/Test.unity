@@ -13232,6 +13232,12 @@ MonoBehaviour:
   delay: 0
   duration: 0.5
   isContinuous: 0
+  canTurnToTarget: 0
+  spriteRenderer: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
+  spriteUp: {fileID: 0}
+  spriteDown: {fileID: 0}
   targetDetector: {fileID: 2060325408}
   shouldAutoFire: 1
   lineModel:
@@ -36423,6 +36429,12 @@ MonoBehaviour:
   delay: 0
   duration: 2
   isContinuous: 0
+  canTurnToTarget: 0
+  spriteRenderer: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
+  spriteUp: {fileID: 0}
+  spriteDown: {fileID: 0}
   targetDetector: {fileID: 1721124353}
   shouldAutoFire: 1
   lineModel:
@@ -42531,6 +42543,12 @@ MonoBehaviour:
   delay: 0
   duration: 0.5
   isContinuous: 0
+  canTurnToTarget: 1
+  spriteRenderer: {fileID: 685225166}
+  spriteLeft: {fileID: 1193420669, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteRight: {fileID: 1284678589, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteUp: {fileID: 182067565, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteDown: {fileID: -669075273, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
   targetDetector: {fileID: 812186380}
   shouldAutoFire: 1
   lineModel:
@@ -75775,6 +75793,12 @@ MonoBehaviour:
   delay: 0
   duration: 0.5
   isContinuous: 0
+  canTurnToTarget: 0
+  spriteRenderer: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
+  spriteUp: {fileID: 0}
+  spriteDown: {fileID: 0}
   targetDetector: {fileID: 820107785}
   shouldAutoFire: 1
   lineModel:
@@ -104916,6 +104940,12 @@ MonoBehaviour:
   delay: 0
   duration: 2
   isContinuous: 0
+  canTurnToTarget: 0
+  spriteRenderer: {fileID: 0}
+  spriteLeft: {fileID: 0}
+  spriteRight: {fileID: 0}
+  spriteUp: {fileID: 0}
+  spriteDown: {fileID: 0}
   targetDetector: {fileID: 876794535}
   shouldAutoFire: 1
   lineModel:
@@ -106140,6 +106170,12 @@ MonoBehaviour:
   delay: 0
   duration: 0.5
   isContinuous: 0
+  canTurnToTarget: 1
+  spriteRenderer: {fileID: 1557489942}
+  spriteLeft: {fileID: -1776433862089896882, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteRight: {fileID: 130318230, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteUp: {fileID: 1129902603, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteDown: {fileID: -5214732439669377100, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
   targetDetector: {fileID: 19015534}
   shouldAutoFire: 1
   lineModel:
@@ -123946,6 +123982,12 @@ MonoBehaviour:
   delay: 0
   duration: 0.5
   isContinuous: 0
+  canTurnToTarget: 1
+  spriteRenderer: {fileID: 2119576966}
+  spriteLeft: {fileID: 1228172279, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteRight: {fileID: 1814316599, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteUp: {fileID: -1541144389, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
+  spriteDown: {fileID: -1504356413, guid: 44f408b55d5136e40b2e94b841a4244b, type: 3}
   targetDetector: {fileID: 2131149958}
   shouldAutoFire: 1
   lineModel:

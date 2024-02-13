@@ -14,6 +14,31 @@ namespace Zac
         [Space]
 
         [SerializeField]
+        private bool canTurnToTarget;
+
+        [SerializeField]
+        [EnableIf("canTurnToTarget")]
+        private SpriteRenderer spriteRenderer;
+
+        [SerializeField]
+        [EnableIf("canTurnToTarget")]
+        private Sprite spriteLeft;
+
+        [SerializeField]
+        [EnableIf("canTurnToTarget")]
+        private Sprite spriteRight;
+
+        [SerializeField]
+        [EnableIf("canTurnToTarget")]
+        private Sprite spriteUp;
+
+        [SerializeField]
+        [EnableIf("canTurnToTarget")]
+        private Sprite spriteDown;
+
+        [Space]
+
+        [SerializeField]
         [Required]
         private TargetDetector targetDetector;
 
@@ -90,7 +115,40 @@ namespace Zac
 
         protected override void DoActionLogic()
         {
+            TurnToTarget();
             dialogueSetter.Show(lineModel);
+        }
+
+        private void TurnToTarget()
+        {
+            if (!canTurnToTarget)
+            {
+                return;
+            }
+
+            var heading = targetDetector.GetFirstTarget().transform.position 
+                - gameObject.transform.position;
+            Vector2 direction = heading / heading.magnitude;
+
+            animator.enabled = false;
+
+            //TODO improve this
+            if (direction.y >= 0f && ((direction.x >= -0.5f) && (direction.x <= 0.5f)))
+            {
+                spriteRenderer.sprite = spriteUp;
+            }
+            else if (direction.y <= 0f && ((direction.x >= -0.5f) && (direction.x <= 0.5f)))
+            {
+                spriteRenderer.sprite = spriteDown;
+            }
+            else if (direction.x <= 0f && ((direction.y >= -0.5f) && (direction.y <= 0.5f)))
+            {
+                spriteRenderer.sprite = spriteLeft;
+            }
+            else if (direction.x >= 0f && ((direction.y >= -0.5f) && (direction.y <= 0.5f)))
+            {
+                spriteRenderer.sprite = spriteRight;
+            }
         }
 
         #endregion //Client Impl

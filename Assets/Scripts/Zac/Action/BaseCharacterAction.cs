@@ -83,6 +83,13 @@ namespace Zac
         [Button]
         public void StartAction()
         {
+            if (!enabled || !gameObject.activeInHierarchy)
+            {
+                Debug.LogWarning($"{gameObject.name}.{GetType().Name} " +
+                    $"Action is disabled. Can't do action...", gameObject);
+                return;
+            }
+
             if (!CanDoAction())
             {
                 Debug.LogWarning($"{gameObject.name}.{GetType().Name} " +
