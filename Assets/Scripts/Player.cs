@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private AudioSource _audioSource;
 
     private Vector2 _movement;
-    private Vector2 _cachedDirection;
+    private Vector2 _cachedDirection = Vector2.down;
     [SerializeField] private bool _isMovementOff = false;
 
     [SerializeField] private AnimationCurve _flashRedAnimCurve;

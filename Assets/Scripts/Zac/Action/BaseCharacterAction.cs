@@ -56,8 +56,8 @@ namespace Zac
 
         #region Other Fields
 
-        private Action onFinishListener;
-        private bool isDoingAction;
+        protected Action onFinishListener;
+        protected bool isDoingAction;
 
         #endregion //Other Fields
 

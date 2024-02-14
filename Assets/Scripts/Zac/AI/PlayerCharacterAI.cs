@@ -26,6 +26,14 @@ namespace Zac
         [SerializeField]
         private Color colorDanger;
 
+        [Space]
+
+        [SerializeField]
+        private Player player;
+
+        [SerializeField]
+        private DashAction dashAction;
+
         #endregion //Inspector Fields
 
         #region Other Fields
@@ -51,6 +59,11 @@ namespace Zac
             if (Input.GetButtonDown("Fire2"))
             {
                 mainAction.StartAction();
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                dashAction.SetDirection(player.CachedDirection);
+                dashAction.StartAction();
             }
         }
 
