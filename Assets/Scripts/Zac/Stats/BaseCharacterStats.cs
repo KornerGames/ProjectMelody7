@@ -26,6 +26,9 @@ namespace Zac
         [SerializeField]
         protected AudioClip clipHurt;
 
+        [SerializeField]
+        private bool shouldPlayHurtSFXOnDeath;
+
         [Space]
 
         [SerializeField]
@@ -105,19 +108,34 @@ namespace Zac
 
             if (stats.hitPoints <= 0)
             {
-                onDeath?.Invoke();
-                eventOnDeath?.Invoke();
+                OnDeath();
             }
             else
             {
-                onHealthUpdate?.Invoke();
-                eventOnHealthUpdate?.Invoke();
+                OnHurt();   
             }
         }
 
         #endregion //Public API
 
         #region Client Impl
+
+        private void OnDeath()
+        {
+            if (shouldPlayHurtSFXOnDeath)
+            {
+                audioSource.PlayOneShot(clipHurt);
+            }
+
+            onDeath?.Invoke();
+            eventOnDeath?.Invoke();
+        }
+
+        private void OnHurt()
+        {
+            onHealthUpdate?.Invoke();
+            eventOnHealthUpdate?.Invoke();
+        }
 
         private void ShowTextStatChange(bool isNegative, int value)
         {
