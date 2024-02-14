@@ -116,7 +116,7 @@ namespace Zac
             Debug.Log($"{gameObject.name}.{GetType().Name}: Just died!", gameObject);
             //TODO
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         #endregion //Client Impl

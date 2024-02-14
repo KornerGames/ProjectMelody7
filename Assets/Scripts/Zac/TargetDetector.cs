@@ -40,6 +40,14 @@ namespace Zac
         [Range(0f, 20f)]
         private float m_offsetHorizontal = 1f;
 
+        [Space]
+
+        [SerializeField]
+        private AudioSource audioSource;
+
+        [SerializeField]
+        private AudioClip clipOnDetect;
+
         #endregion //Inspector Fields
 
         private ReactiveProperty<bool> m_isTargetDetected = new ReactiveProperty<bool>(false);
@@ -67,6 +75,16 @@ namespace Zac
         {
             InitControlledObservers();
             InitUnControlledObservers();
+        }
+
+        private void Start()
+        {
+            IsTargetDetected()
+                .Where(isTargetDetected => isTargetDetected)
+                .Where(_ => audioSource != null)
+                .Where(_ => clipOnDetect != null)
+                .Subscribe(_ => audioSource.PlayOneShot(clipOnDetect))
+                .AddTo(this);
         }
 
         #endregion //Unity Callbacks
