@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Zac
-  productName: Acolyte Protype
+  productName: Acolyte Protype (Horror)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Zac.Acolyte-Protype
+    Standalone: com.Zac.Acolyte-Protype--Horror-
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -325,7 +325,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 2a29afeeb1afb294b9001035518847b4, type: 3}
+      m_Icon: {fileID: 2800000, guid: 5f4ed85fb213a484abbf001e6f3b556c, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
