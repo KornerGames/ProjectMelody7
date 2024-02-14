@@ -3,6 +3,7 @@ using UniRx.Triggers;
 using UniRx;
 using System.Collections.Generic;
 using NaughtyAttributes;
+using UnityEngine.Events;
 
 namespace Zac
 {
@@ -48,6 +49,11 @@ namespace Zac
         [SerializeField]
         private AudioClip clipOnDetect;
 
+        [Space]
+
+        [SerializeField]
+        private UnityEvent eventOnDetect;
+
         #endregion //Inspector Fields
 
         private ReactiveProperty<bool> m_isTargetDetected = new ReactiveProperty<bool>(false);
@@ -84,6 +90,11 @@ namespace Zac
                 .Where(_ => audioSource != null)
                 .Where(_ => clipOnDetect != null)
                 .Subscribe(_ => audioSource.PlayOneShot(clipOnDetect))
+                .AddTo(this);
+
+            IsTargetDetected()
+                .Where(isTargetDetected => isTargetDetected)
+                .Subscribe(_ => eventOnDetect?.Invoke())
                 .AddTo(this);
         }
 
