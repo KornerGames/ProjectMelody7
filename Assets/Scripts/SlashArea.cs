@@ -8,7 +8,7 @@ public class SlashArea : MonoBehaviour
     private List<Collider2D> _enemies = new List<Collider2D>();
     private static object _lock = new object();
 
-    private Collider2D _ene;
+    //private Collider2D _ene;
 
     public void SetDamage(float damage)
     {
@@ -17,44 +17,44 @@ public class SlashArea : MonoBehaviour
 
     public void SlashEnemies()
     {
-        if(_ene == null)
-        {
-            return;
-        }
-
-        if (_ene.TryGetComponent(out Enemy e))
-        {
-            e.TakeDamage(_damage);
-        }
-        if (_ene.TryGetComponent(out Zac.BaseCharacterStats stats))
-        {
-            stats.InflictHP(Zac.InflictHPType.Damage, (int)_damage);
-        }
-        return;
-
-        //lock (_lock)
+        //if(_ene == null)
         //{
-        //    foreach (Collider2D enemy in _enemies)
-        //    {
-        //        if (enemy.TryGetComponent(out Enemy e))
-        //        {
-        //            e.TakeDamage(_damage);
-        //        }
-        //        if (enemy.TryGetComponent(out Zac.BaseCharacterStats stats))
-        //        {
-        //            stats.InflictHP(Zac.InflictHPType.Damage, (int)_damage);
-        //        }
-        //    }
+        //    return;
         //}
+
+        //if (_ene.TryGetComponent(out Enemy e))
+        //{
+        //    e.TakeDamage(_damage);
+        //}
+        //if (_ene.TryGetComponent(out Zac.BaseCharacterStats stats))
+        //{
+        //    stats.InflictHP(Zac.InflictHPType.Damage, (int)_damage);
+        //}
+        //return;
+
+        lock (_lock)
+        {
+            foreach (Collider2D enemy in _enemies)
+            {
+                //if (enemy.TryGetComponent(out Enemy e))
+                //{
+                //    e.TakeDamage(_damage);
+                //}
+                if (enemy.TryGetComponent(out Zac.BaseCharacterStats stats))
+                {
+                    stats.InflictHP(Zac.InflictHPType.Damage, (int)_damage);
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _ene = collision;
+        //_ene = collision;
 
         lock (_lock)
         {
-            if (collision.CompareTag("Enemy"))
+            if (collision.CompareTag(Zac.Tags.Enemy.ToString()))
             {
                 _enemies.Add(collision);
             }
@@ -63,14 +63,14 @@ public class SlashArea : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (_ene == collision)
-        {
-            _ene = null;
-        }
+        //if (_ene == collision)
+        //{
+        //    _ene = null;
+        //}
 
         lock (_lock)
         {
-            if (collision.CompareTag("Enemy"))
+            if (_enemies.Contains(collision))
             {
                 _enemies.Remove(collision);
             }
