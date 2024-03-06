@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - FxTemporaire
+  - ItemHealing
   layers:
   - Default
   - TransparentFX
