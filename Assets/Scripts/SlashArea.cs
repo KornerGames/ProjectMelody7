@@ -54,7 +54,7 @@ public class SlashArea : MonoBehaviour
 
         lock (_lock)
         {
-            if (collision.CompareTag(Zac.Tags.Enemy.ToString()))
+            if (Zac.TagsUtil.IsEnemy(collision.tag))
             {
                 _enemies.Add(collision);
             }
